@@ -21,7 +21,6 @@ const EditCourse = () => {
     discount: 0,
     thumbnail: '',
     courseContent: [],
-    isPublished: false,
   });
 
   const [image, setImage] = useState(null);
@@ -58,14 +57,13 @@ const EditCourse = () => {
       });
 
       if (data.success) {
-        const { courseTitle, courseDescription, coursePrice, discount, courseContent, thumbnail, isPublished } =
+        const { courseTitle, courseDescription, coursePrice, discount, courseContent, thumbnail } =
           data.courseData;
 
         setCourseData({
           courseTitle,
           coursePrice,
           discount,
-          isPublished,
           thumbnail,
           courseContent,
         });
@@ -86,7 +84,7 @@ const EditCourse = () => {
       });
     }
     fetchCourse();
-  }, [id, getToken, backend]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -268,9 +266,4 @@ const EditCourse = () => {
     </div>
   );
 };
-<<<<<<< HEAD
-
 export default EditCourse;
-=======
-export default EditCourse;
->>>>>>> 6385eef (error resolving)
